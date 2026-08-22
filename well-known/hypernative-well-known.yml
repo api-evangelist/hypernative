@@ -1,0 +1,71 @@
+generated: '2026-08-22'
+method: probed
+source: live GET probes of /.well-known/* on every Hypernative host, 2026-08-22
+hit_count: 0
+note: >-
+  No /.well-known document is served by Hypernative on any host. www.hypernative.io
+  returns a purpose-built 404 body ("Invalid .well-known request") for every path;
+  api.hypernative.xyz returns its standard JSON 404 envelope; status.hypernative.io
+  returns the Cronitor 404 page. app.hypernative.xyz is a single-page-app CATCH-ALL that
+  answers HTTP 200 with the identical 4009-byte React index.html shell for every
+  /.well-known/* path AND for /llms.txt — these are soft-404s, not documents, and are
+  recorded as misses. No WellKnown or SecurityTxt pointer is emitted because no path
+  returned a real document. Hypernative DOES publish an llms.txt, but at
+  https://www.hypernative.io/llms.txt (a real 4307-byte text/plain document) rather than
+  under /.well-known/ — see llms/hypernative-llms.txt.
+hosts:
+- host: https://www.hypernative.io
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+- host: https://api.hypernative.xyz
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+- host: https://app.hypernative.xyz
+  soft_404_control:
+    note: >-
+      SPA catch-all. Every probed path returned HTTP 200 with an identical 4009-byte
+      text/html React shell, including a nonsense control path. Treated as zero documents.
+    status: 200
+    content_type: text/html
+    bytes: 4009
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    soft_404: true
+  - path: /.well-known/openid-configuration
+    status: 200
+    soft_404: true
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    soft_404: true
+  - path: /.well-known/api-catalog
+    status: 200
+    soft_404: true
+- host: https://status.hypernative.io
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404

@@ -1,0 +1,62 @@
+# Hypernative
+
+> Hypernative is the institutional-grade Web3 security platform that stops threats before they cause damage — protecting protocols, chains, asset managers, exchanges, wallets, and financial institutions with real-time monitoring, detection, and automated onchain response.
+
+Hypernative secures $100B+ in onchain assets across 250+ customers and 70+ chains. It detects 99.5% of hacks, with 98% detected 2+ minutes before the first hack transaction, at a false positive rate below 0.001%. To date, Hypernative has saved over $2B in funds from exploits.
+
+## Products
+
+- [Hypernative Platform](https://www.hypernative.io/product/onchain-monitoring-automated-response): Real-time monitoring, detection, and automated onchain response. Detects the widest range of Web3 attacks with high accuracy.
+- [Guardian](https://www.hypernative.io/product/transaction-guard): Real-time transaction simulation, analysis, and policy enforcement. Eliminates phishing and fraud risk before signing.
+- [Screener](https://www.hypernative.io/product/screening-intelligence): Real-time address reputation and risk scoring across multiple chains.
+- [Wallet Protect](https://www.hypernative.io/product/wallet-protection): Enterprise-grade threat prevention for individual wallet users.
+- [Fraud Prevention](https://www.hypernative.io/product/fraud-prevention): Transaction-level policy enforcement to keep attackers out without disrupting legitimate users.
+
+## Industries Served
+
+- [Financial Institutions](https://www.hypernative.io/industry/financial-institutions)
+- [L1 & L2 Chains](https://www.hypernative.io/industry/l1-l2-chains)
+- [Asset Managers](https://www.hypernative.io/industry/asset-managers)
+- [Protocols](https://www.hypernative.io/industry/protocols)
+- [Payment Providers](https://www.hypernative.io/industry/payment-providers)
+- [Centralized Exchanges](https://www.hypernative.io/industry/exchanges)
+- [Institutional Wallets](https://www.hypernative.io/industry/institutional-wallets)
+- [Retail Wallets](https://www.hypernative.io/industry/retail-wallets)
+- [Stablecoin Issuers](https://www.hypernative.io/industry/issuers)
+
+## Solutions
+
+- [Security](https://www.hypernative.io/solutions/security): Proactive hack and exploit prevention
+- [Compliance](https://www.hypernative.io/solutions/compliance): AML, sanctions, and regulatory compliance
+- [Fraud](https://www.hypernative.io/solutions/fraud): Fraud and phishing protection
+- [Financial Operations](https://www.hypernative.io/solutions/financial-operations): Liquidity, bad debt, and financial risk monitoring
+- [End-User Protection](https://www.hypernative.io/solutions/end-user-protection): Wallet and consumer-facing security
+- [Chain Integrations](https://www.hypernative.io/solutions/chain-integrations): Ecosystem-wide chain security integrations
+
+## Professional Services
+
+- [Custom Configurations](https://www.hypernative.io/ecosystems/custom-configurations)
+- [Incident Response](https://www.hypernative.io/ecosystems/incident-response)
+- [Security Council Participation](https://www.hypernative.io/ecosystems/security-council-participation)
+- [Security Services](https://www.hypernative.io/ecosystems/security-services)
+
+## Key Resources
+
+- [Why Hypernative](https://www.hypernative.io/hypernative-difference): How Hypernative compares to alternatives
+- [The Ultimate Guide to Web3 Security](https://www.hypernative.io/guide-to-web3): Practical guide for teams securing digital assets
+- [Insights & Blog](https://www.hypernative.io/insights): Case studies, research, and threat intelligence
+- [Book a Demo](https://www.hypernative.io/book-a-demo)
+- [About Hypernative](https://www.hypernative.io/about)
+- [Privacy Policy](https://www.hypernative.io/privacy-policy)
+
+## Notable Customers
+
+Ethereum Foundation, Solana, Chainlink, Uniswap, Circle, Morpho, PancakeSwap, Ethena, Ether.fi, OlympusDAO, Injective, Starknet, Polygon, ZkSync, Flare, Sei, Stellar, Sui, Berachain, Safe, Fordefi, Wave Digital, Wintermute, RE7 Capital, Bitwise, Linea, Mode, Astar, Rootstock, and 250+ others.
+
+## Company
+
+- Website: https://www.hypernative.io
+- App: https://app.hypernative.xyz
+- LinkedIn: https://www.linkedin.com/company/hypernative/
+- Twitter/X: https://twitter.com/HypernativeLabs
+- Careers: https://www.comeet.com/jobs/hypernative/8A.00E

@@ -1,0 +1,110 @@
+generated: '2026-08-22'
+method: probed
+source: >-
+  Live unauthenticated probes of https://api.hypernative.xyz (2026-08-22), the provider's
+  status page, and public third-party integration source code. Hypernative's own API
+  reference is a customer-only GitBook space (docs.hypernative.xyz 307s to an app login),
+  so every "unknown" below is a genuine gap in what a member of the public can read — not
+  an unchecked field.
+api: Hypernative API
+base_url: https://api.hypernative.xyz
+authentication:
+  style: bearer-token
+  header: 'Authorization: Bearer <apiKey>'
+  detail: authentication/hypernative-authentication.yml
+idempotency:
+  supported: unknown
+  header: null
+  scope: null
+  retention: null
+  evidence: >-
+    No idempotency header, key or retry-safety statement is publicly documented, and none
+    could be observed from unauthenticated 401/404 responses. NOT recorded as supported —
+    no Idempotency pointer is emitted, because asserting one without evidence would credit
+    a guarantee Hypernative has not published.
+pagination:
+  style: unknown
+  params: []
+  response_fields: []
+  note: >-
+    Not observable without credentials. The success envelope wraps payloads in a `data`
+    object, so any pagination metadata presumably sits inside `data`, but its shape is
+    undocumented publicly.
+field_expansion:
+  supported: unknown
+metadata:
+  supported: unknown
+request_id:
+  header: null
+  note: >-
+    No request-id / correlation-id header was returned on any observed response. The
+    envelope does carry `version` (server build) and `service` (emitting microservice),
+    which support coarse support correlation but do not identify a single request.
+versioning:
+  in_path: false
+  in_header: false
+  note: >-
+    No /v1/ path prefix was observed on the publicly-referenced endpoints
+    (/assets/reputation/addresses, /assets, /health). A build stamp — 2.59.0+3f613ebbd —
+    is returned in every response body. See lifecycle/hypernative-lifecycle.yml.
+error_envelope:
+  format: vendor-envelope
+  rfc9457: false
+  shape: '{success, data, error, errorCode, version, service}'
+  detail: errors/hypernative-problem-types.yml
+rate_limit_signaling:
+  headers_observed: []
+  note: >-
+    No X-RateLimit-*, RateLimit-* or Retry-After header appeared on any observed response
+    (401, 404, 500 or the 200 from /health). No 429 could be triggered responsibly with a
+    single unauthenticated probe. See rate-limits/hypernative-rate-limits.yml.
+  detail: rate-limits/hypernative-rate-limits.yml
+transport:
+  https_only: true
+  tls: TLSv1.3
+  hsts: 'max-age=15552000; includeSubDomains'
+  content_type: application/json; charset=utf-8
+  cors:
+    note: >-
+      Responses set AWSALBTGCORS cookies with SameSite=None; Secure, indicating browser
+      cross-origin use is anticipated. The CSP is default-src 'self'.
+dry_run_mode:
+  supported: unknown
+  note: >-
+    Transaction Guard's whole premise is pre-signature transaction SIMULATION — the
+    product simulates and evaluates a transaction before it is signed and broadcast, which
+    is a dry-run capability at the product level. Whether the API exposes a caller-
+    controlled dry-run/preview flag is not publicly documented.
+reversibility:
+  grade: undocumented
+  applicable: true
+  applicable_note: >-
+    This is NOT a read-only API. Hypernative's automated-response surface takes consequential
+    write actions — pausing protocols, blocking or rejecting transactions, freezing
+    positions, and executing custom onchain response playbooks — alongside CRUD over
+    watchlists, custom agents and notification channels. Reversibility therefore matters
+    here more than for most APIs in this catalog, because the actions are both automated
+    and onchain.
+  reversal_operations: []
+  window: null
+  docs: null
+  note: >-
+    No reversal operation, undo path, or reversal window could be established from any
+    public source. Hypernative publishes no OpenAPI, and its API reference is gated behind
+    a customer login, so no operationId, cancel/rollback path or time window is readable.
+    NO WINDOW IS ASSERTED HERE. Two structural observations are recorded instead, both
+    from public material: (1) the onchain response actions Hypernative triggers are
+    executed by CUSTOMER-OWNED contracts — e.g. Exactly Protocol's publicly documented
+    Pauser contract at 0x8cC05394eD714073758E9bEf8073a83d79F6F2A3 — so the reversal path
+    for a triggered pause is the customer's own contract role structure, not a Hypernative
+    API endpoint; and (2) any onchain action, once mined, is irreversible in the ledger
+    sense regardless of API affordances. A provider-published reversal/rollback reference
+    is the single highest-value agent-readiness artifact Hypernative could add.
+  graded_as: >-
+    undocumented — no reversal path and no window found. Not `na`: a write surface
+    demonstrably exists.
+cross_references:
+- authentication/hypernative-authentication.yml
+- errors/hypernative-problem-types.yml
+- rate-limits/hypernative-rate-limits.yml
+- lifecycle/hypernative-lifecycle.yml

@@ -1,23 +1,103 @@
 aid: hypernative
 name: Hypernative
-description: 'Hypernative is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: >-
+  Hypernative is an institutional-grade Web3 and onchain security platform that detects
+  and prevents blockchain threats before they cause damage. It combines real-time
+  monitoring, machine-learning detection, simulation and graph-based analysis across
+  70+ chains with automated onchain response, covering over 300 risk types including
+  smart contract exploits, bridge incidents, frontend compromises, private key theft,
+  market manipulation and governance attacks. The platform is delivered as five
+  products — the Hypernative Platform (onchain monitoring and automated response),
+  Guardian / Transaction Guard (pre-signature transaction simulation and policy
+  enforcement), Screener (cross-chain address reputation and risk scoring), Wallet
+  Protect (end-user wallet threat prevention), and Fraud Prevention — and integrates
+  into customer operations through UI, REST API, SDK and webhook paths served from
+  api.hypernative.xyz. Hypernative reports securing $100B+ in onchain assets for 250+
+  customers including chains, protocols, exchanges, custodians, asset managers,
+  stablecoin issuers and financial institutions.
 url: https://raw.githubusercontent.com/api-evangelist/hypernative/refs/heads/main/apis.yml
+image: https://www.hypernative.io/favicon.ico
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
 specificationVersion: '0.20'
 created: '2026-08-22'
 modified: '2026-08-22'
 tags:
 - Company
-apis: []
+- Security
+- Blockchain
+- Web3
+- Threat Detection
+- Risk Management
+- Compliance
+- Fraud Prevention
+- Monitoring
+- Cryptocurrency
+apis:
+- aid: hypernative:hypernative-api
+  name: Hypernative API
+  description: >-
+    The Hypernative REST API exposes the platform's monitoring, detection, screening
+    and automated-response surface — including Screener address reputation
+    (/assets/reputation/addresses), asset and watchlist management, alert/notification
+    channels and Transaction Guard policy enforcement. Authenticated with a Bearer
+    token or client-id/client-secret pair issued from the Hypernative app. The
+    reference documentation is published to customers via GitBook at
+    docs.hypernative.xyz and requires an authenticated Hypernative account.
+  humanURL: https://docs.hypernative.xyz/
+  baseURL: https://api.hypernative.xyz
+  tags:
+  - Security
+  - Blockchain
+  - Threat Detection
+  - Screening
+  properties:
+  - type: Authentication
+    url: authentication/hypernative-authentication.yml
+  - type: ErrorCatalog
+    url: errors/hypernative-problem-types.yml
+  - type: RateLimits
+    url: rate-limits/hypernative-rate-limits.yml
+  - type: Conventions
+    url: conventions/hypernative-conventions.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/hypernative-domain-security.yml
 - type: Website
-  url: https://www.nasdaqprivatemarket.com/
+  url: https://www.hypernative.io/
+- type: Documentation
+  url: https://docs.hypernative.xyz/
+- type: Blog
+  url: https://www.hypernative.io/insights/blog
+- type: PrivacyPolicy
+  url: https://www.hypernative.io/privacy-policy
+- type: Login
+  url: https://app.hypernative.xyz/login
+- type: Support
+  url: https://www.hypernative.io/book-a-demo
+- type: GitHubOrganization
+  url: https://github.com/Hypernative-Labs
+- type: LLMsTxt
+  url: llms/hypernative-llms.txt
+- type: StatusPage
+  url: lifecycle/hypernative-lifecycle.yml
+- type: Lifecycle
+  url: lifecycle/hypernative-lifecycle.yml
+- type: Webhooks
+  url: asyncapi/hypernative-webhooks.yml
+- type: Conformance
+  url: conformance/hypernative-conformance.yml
+- type: Packages
+  url: packages/hypernative-packages.yml
+- type: Plans
+  url: plans/hypernative-plans-pricing.yml
+x-enrichment:
+  date: '2026-08-22'
+  status: enriched
+  artifacts_added: 12
+  pass: local-v1

@@ -1,0 +1,98 @@
+generated: '2026-08-22'
+method: probed
+source: >-
+  Live unauthenticated responses observed from https://api.hypernative.xyz on 2026-08-22.
+  Derived from real HTTP responses, not from a specification — Hypernative publishes no
+  OpenAPI and its error reference is inside the gated GitBook space.
+api: Hypernative API
+format: vendor-envelope
+rfc9457: false
+content_type: application/json; charset=utf-8
+envelope:
+  shape: |
+    {
+      "success": false,
+      "data": {},
+      "error": "<human-readable message>",
+      "errorCode": <integer, mirrors the HTTP status>,
+      "version": "<server build, e.g. 2.59.0+3f613ebbd>",
+      "service": "<emitting service, e.g. @hypernative/server>"
+    }
+  fields:
+  - name: success
+    type: boolean
+    note: false on every error; true on success (confirmed against /health).
+  - name: data
+    type: object
+    note: Empty object on error; carries the payload on success.
+  - name: error
+    type: string
+    note: Human-readable message. Not a stable machine identifier and not a URI.
+  - name: errorCode
+    type: integer
+    note: >-
+      Mirrors the HTTP status code in every response observed (404 -> 404, 401 -> 401).
+      No finer-grained application error taxonomy was observable without credentials.
+  - name: version
+    type: string
+    note: Server build stamp — useful for support correlation.
+  - name: service
+    type: string
+    note: Names the emitting microservice (@hypernative/server observed).
+  note: >-
+    This is a vendor envelope, NOT RFC 9457 application/problem+json. There is no `type`
+    URI, no `title`/`detail` split and no `instance`. An agent cannot resolve an error to
+    a documented problem type.
+problem_types:
+- status: 401
+  error: Unauthorized
+  errorCode: 401
+  observed_on:
+  - POST /assets/reputation/addresses
+  - GET /assets
+  remediation: >-
+    Supply an Authorization: Bearer <apiKey> header with a key issued from
+    https://app.hypernative.xyz. No WWW-Authenticate header is returned.
+  observed: true
+- status: 404
+  error: 'Cannot GET <path>'
+  errorCode: 404
+  observed_on:
+  - GET /openapi.json
+  - GET /swagger.json
+  - GET /graphql
+  - GET /.well-known/*
+  remediation: Route does not exist. Note the message echoes the method and path.
+  observed: true
+- status: 500
+  error: >-
+    An internal error has occurred. Please try again. If the issue persists, please
+    contact Hypernative...
+  errorCode: 500
+  observed_on:
+  - GET /docs-json
+  - GET /docs/json
+  remediation: >-
+    Server-side failure. Observed on the /docs-json and /docs/json routes, which exist in
+    the router but fault for an unauthenticated caller rather than returning 401 or 404.
+  observed: true
+coverage_note: >-
+  Only the three error classes above could be observed without credentials. Any
+  documented 400/403/409/422/429 catalogue lives behind the customer-only docs, so this
+  catalogue is an honest floor, not a complete registry.
+x-evidence:
+- url: https://api.hypernative.xyz/assets/reputation/addresses
+  method: POST
+  status: 401
+- url: https://api.hypernative.xyz/assets
+  method: GET
+  status: 401
+- url: https://api.hypernative.xyz/openapi.json
+  method: GET
+  status: 404
+- url: https://api.hypernative.xyz/docs-json
+  method: GET
+  status: 500
+- url: https://api.hypernative.xyz/health
+  method: GET
+  status: 200

@@ -1,0 +1,57 @@
+generated: '2026-08-22'
+method: searched
+source: >-
+  Registry searches of npm, PyPI, crates.io, RubyGems, pkg.go.dev, NuGet and Maven
+  Central, plus the Hypernative-Labs GitHub organization, 2026-08-22
+package_count: 0
+official_package_count: 0
+note: >-
+  NO first-party Hypernative client library was found in any public package registry.
+  The npm registry search for "hypernative" returned zero packages; PyPI returned 404 for
+  both `hypernative` and `hypernative-sdk`; crates.io returned zero results. The
+  Hypernative-Labs GitHub organization (https://github.com/Hypernative-Labs) holds 8
+  public repositories, and NONE is a client SDK — they are forks and protocol tooling:
+  safe-wallet-monorepo (a Safe{Wallet} fork), hypernative-guard (Solidity response
+  contracts), automated-response-balancer-pools (Solidity), nitro (an Arbitrum Nitro
+  fork), python-solidity-parser, upgradehub-frontend, upgradehub-diamond-scanner and
+  ethereum-validators-monitoring. Hypernative's product material references "SDK"
+  integration, so an SDK plausibly exists — but it is distributed to customers privately
+  rather than published to a public registry, so a consumer cannot install it, pin it, or
+  see when it was last released. No SDKs pointer is emitted: there is no public client
+  library to point at. This is a verified absence, not an unchecked field.
+registries_checked:
+- registry: npm
+  query: hypernative
+  result_count: 0
+- registry: pypi
+  query: hypernative
+  status: 404
+- registry: pypi
+  query: hypernative-sdk
+  status: 404
+- registry: crates.io
+  query: hypernative
+  result_count: 0
+packages: []
+related_public_repos:
+- name: hypernative-guard
+  url: https://github.com/Hypernative-Labs/hypernative-guard
+  language: Solidity
+  official: true
+  version: null
+  published: null
+  registry: null
+  note: >-
+    Solidity guard/response contracts published by Hypernative-Labs, not a client SDK and
+    not distributed through any package registry — no version metadata endpoint exists to
+    query. Last pushed 2025-07-06 per the GitHub API.
+- name: automated-response-balancer-pools
+  url: https://github.com/Hypernative-Labs/automated-response-balancer-pools
+  language: Solidity
+  official: true
+  version: null
+  published: null
+  registry: null
+  note: >-
+    Automated-response integration contracts for Balancer pools. Not a registry-published
+    package; no version metadata available. Last pushed 2025-03-14 per the GitHub API.

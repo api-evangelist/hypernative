@@ -1,0 +1,26 @@
+generated: '2026-08-22'
+method: searched
+source: >-
+  https://www.hypernative.io/ (footer + navigation, HTTP 200) and
+  https://www.hypernative.io/pricing (HTTP 404), probed 2026-08-22
+plan_count: 0
+pricing_published: false
+model: enterprise-contact-sales
+note: >-
+  Hypernative publishes NO pricing at all. /pricing returns HTTP 404, there is no pricing
+  entry anywhere in the site navigation or footer, and the site's own llms.txt — which
+  enumerates every product, industry, solution and key resource page — lists no pricing
+  page either. Every commercial path funnels to a sales motion at
+  https://www.hypernative.io/book-a-demo. This is an honest zero, not a gap in our search:
+  the company sells enterprise contracts to chains, protocols, exchanges, custodians and
+  financial institutions, and prices them privately. No free tier, trial tier or
+  self-serve signup was found; https://app.hypernative.xyz/login is a login for existing
+  customers rather than a self-serve registration.
+plans: []
+x-evidence:
+- url: https://www.hypernative.io/pricing
+  status: 404
+- url: https://www.hypernative.io/book-a-demo
+  status: 200
+- url: https://www.hypernative.io/llms.txt
+  status: 200

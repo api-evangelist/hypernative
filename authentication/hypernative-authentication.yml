@@ -1,0 +1,79 @@
+generated: '2026-08-22'
+method: probed
+source: >-
+  Live unauthenticated probes of https://api.hypernative.xyz (2026-08-22) plus public
+  third-party integration source code that calls the Hypernative API
+  (https://github.com/balancer/balancer-api/blob/master/src/lambdas/check-wallet.ts).
+  The provider's own auth reference is inside the authenticated GitBook space at
+  docs.hypernative.xyz and could not be read.
+api: Hypernative API
+base_url: https://api.hypernative.xyz
+schemes:
+- key: bearerAuth
+  type: http
+  scheme: bearer
+  in: header
+  header: Authorization
+  format: 'Bearer <apiKey>'
+  confidence: high
+  evidence: >-
+    Public Balancer integration code sends
+    `Authorization: Bearer ${apiKey}` to
+    https://api.hypernative.xyz/assets/reputation/addresses. An unauthenticated POST to
+    that exact endpoint returned HTTP 401 with
+    {"success":false,"error":"Unauthorized","errorCode":401} on 2026-08-22, confirming the
+    endpoint exists and is credential-gated.
+- key: clientCredentials
+  type: apiKey
+  in: header
+  headers:
+  - x-client-id
+  - x-client-secret
+  confidence: low
+  evidence: >-
+    Hypernative's app issues client-id / client-secret pairs for programmatic access
+    per its login surface, but the header names could NOT be confirmed from any public
+    document — the API reference is gated. Recorded as a low-confidence candidate ONLY;
+    do not treat these header names as verified.
+oauth2: false
+openid_connect: false
+mutual_tls: unknown
+scopes:
+  published: false
+  note: >-
+    No OAuth2 scope surface. Access appears to be bearer-token/API-key based, so
+    scopes/ is not applicable (see the key-auth guidance in the pipeline contract).
+    Role/permission granularity, if any, is documented only inside the gated docs.
+discovery:
+  openid_configuration: 404
+  oauth_authorization_server: 404
+  oauth_protected_resource: 404
+  note: All OAuth/OIDC discovery documents 404 on every Hypernative host.
+observed_challenge:
+  request: POST https://api.hypernative.xyz/assets/reputation/addresses (no credentials)
+  status: 401
+  www_authenticate: null
+  body: '{"success":false,"data":{},"error":"Unauthorized","errorCode":401,"version":"2.59.0+3f613ebbd","service":"@hypernative/server"}'
+  note: >-
+    No WWW-Authenticate header is returned on the 401, so the required scheme is not
+    machine-discoverable from the challenge — a client must read the gated docs.
+transport_security:
+  https_only: true
+  tls_version: TLSv1.3
+  hsts: 'max-age=15552000; includeSubDomains'
+  observed_headers:
+  - content-security-policy
+  - cross-origin-opener-policy: same-origin
+  - cross-origin-resource-policy: same-origin
+  - referrer-policy: no-referrer
+  - x-content-type-options: nosniff
+  - x-frame-options: SAMEORIGIN
+  note: >-
+    The API sends a full Helmet-style hardening header set on every response including
+    error responses.
+docs: https://docs.hypernative.xyz/
+docs_accessible: false
+docs_note: >-
+  docs.hypernative.xyz 307-redirects every path to
+  https://app.hypernative.xyz/login?ref=gitbook — the entire API reference is a
+  customer-only GitBook space.

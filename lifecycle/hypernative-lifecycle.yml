@@ -1,0 +1,59 @@
+generated: '2026-08-22'
+method: searched
+source: https://status.hypernative.io/ (HTTP 200, fetched 2026-08-22)
+status_page:
+  url: https://status.hypernative.io/
+  provider: Cronitor
+  http_status: 200
+  components:
+  - name: Hypernative Website
+    state: Operational
+  - name: Hypernative API Service
+    state: Operational
+  - name: Wallet Protect API Service
+    state: Operational
+  - name: Transaction Guard API Service
+    state: Operational
+  - name: Transaction Guard Webhook Service
+    state: Operational
+  incident_history: https://status.hypernative.io/history
+  feeds:
+    rss: null
+    note: >-
+      No RSS/Atom feed or machine-readable status endpoint is exposed. /feed, /feed.rss,
+      /rss, /api/status and /badge all returned 404; only the HTML page and /history (200)
+      are available. Subscription is via the page's "Get updates" form.
+  uptime_published: false
+  uptime_note: >-
+    Every component renders "Uptime -- No data available" across the 24h/7d/30d/90d
+    windows, so no historical uptime figures are actually published.
+versioning:
+  scheme: unknown
+  note: >-
+    No public versioning policy is published. The API does emit a build version in every
+    response envelope (observed "version": "2.59.0+3f613ebbd" on both 200 and 4xx responses
+    from api.hypernative.xyz on 2026-08-22), which is a semver+commit build stamp rather
+    than a negotiated API version. No /v1/ or /v2/ path prefix was observed on the
+    endpoints referenced in public third-party integration code.
+  observed_build_version: 2.59.0+3f613ebbd
+deprecation:
+  policy_published: false
+  sunset_header: unknown
+  note: >-
+    No deprecation or sunset policy could be found. The API reference is published to
+    customers only via an authenticated GitBook space at docs.hypernative.xyz, so any
+    deprecation policy that exists is not publicly readable.
+sla:
+  published: false
+  note: >-
+    No public SLA. Hypernative sells enterprise contracts through a demo/sales motion
+    (https://www.hypernative.io/book-a-demo); SLA terms are presumably contractual.
+x-evidence:
+- url: https://status.hypernative.io/
+  status: 200
+- url: https://status.hypernative.io/history
+  status: 200
+- url: https://status.hypernative.io/feed.rss
+  status: 404
+- url: https://api.hypernative.xyz/health
+  status: 200

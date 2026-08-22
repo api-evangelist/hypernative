@@ -1,0 +1,88 @@
+generated: '2026-08-22'
+method: searched
+source: >-
+  https://www.hypernative.io/ product + solution pages and live probes of
+  api.hypernative.xyz, 2026-08-22. No OpenAPI, AsyncAPI or other machine-readable contract
+  is published, so every contract-level assertion below is recorded as not-determinable
+  rather than guessed.
+api: Hypernative API
+contract_available: false
+contract_note: >-
+  Hypernative publishes no machine-readable contract on any host. Standard conformance
+  that would normally be read out of a spec (securitySchemes, problem+json media types,
+  pagination shape, SCIM/OData/ActivityPub signatures) cannot be evaluated.
+conformance:
+- id: tls
+  conforms: true
+  evidence: >-
+    TLSv1.3 on www.hypernative.io, api.hypernative.xyz and docs.hypernative.xyz;
+    HSTS max-age=15552000; includeSubDomains returned by the API. Probed 2026-08-22.
+- id: https-only
+  conforms: true
+  evidence: All Hypernative surfaces serve over HTTPS; no plaintext endpoint found.
+- id: bearer-token-auth
+  conforms: true
+  evidence: >-
+    RFC 6750-style Authorization: Bearer credential, confirmed by a 401 on an
+    unauthenticated call to /assets/reputation/addresses and by public third-party
+    integration code. Note the 401 omits the WWW-Authenticate header RFC 6750 expects.
+- id: oauth2
+  conforms: false
+  evidence: >-
+    No OAuth2 surface. /.well-known/oauth-authorization-server and
+    /.well-known/oauth-protected-resource return 404 on every host.
+- id: oidc
+  conforms: false
+  evidence: /.well-known/openid-configuration returns 404 on every host.
+- id: rfc9457
+  conforms: false
+  evidence: >-
+    Errors are a vendor envelope ({success, data, error, errorCode, version, service}) with
+    content-type application/json — not application/problem+json, no `type` URI.
+- id: rfc9116-security-txt
+  conforms: false
+  evidence: /.well-known/security.txt returns 404 on every Hypernative host.
+- id: rfc8594-sunset
+  conforms: false
+  evidence: No Sunset or Deprecation header observed and no deprecation policy published.
+- id: idempotency
+  conforms: null
+  evidence: Not determinable — no public documentation and no observable header.
+- id: pagination
+  conforms: null
+  evidence: Not determinable without credentials.
+domain_standards:
+  market: onchain security, AML / sanctions screening and transaction risk for digital assets
+  determinable: false
+  note: >-
+    REWARD-ONLY dimension, and it is correctly left unscored here. Hypernative's market
+    does have candidate standards a contract could declare — OFAC SDN / sanctions list
+    identifiers, FATF Travel Rule IVMS 101 payloads, and chain-level address formats such
+    as CAIP-10 — and the product pages describe AML, sanctions and regulatory workflows
+    aligned to OCC, FCA, MAS and MiCA supervisory expectations. But those are descriptions
+    of what the PRODUCT does for customers, not a standard DECLARED BY A CONTRACT. With no
+    published spec there is no schema URN, media type, message type or endpoint signature
+    to point at, so no domain-standard conformance is asserted. This is a not-determinable,
+    not a failure.
+  candidates_not_verified:
+  - OFAC SDN / sanctions list identifiers
+  - FATF Travel Rule (IVMS 101)
+  - CAIP-10 chain-agnostic address identifiers
+company_certifications:
+  published: false
+  note: >-
+    No SOC 2, ISO 27001, PCI or other certification is published on any Hypernative page,
+    and no trust center exists (trust.hypernative.io does not resolve; probe-security-programs
+    returned trust=none). Regulatory frameworks named on the site (OCC, FCA, MAS, MiCA)
+    describe the supervisory context Hypernative's customers operate in, NOT audits
+    Hypernative itself has passed. No Compliance or TrustCenter pointer is emitted —
+    emitting one would credit Hypernative with a compliance program it has not published.
+x-evidence:
+- url: https://api.hypernative.xyz/.well-known/openid-configuration
+  status: 404
+- url: https://api.hypernative.xyz/.well-known/oauth-authorization-server
+  status: 404
+- url: https://www.hypernative.io/.well-known/security.txt
+  status: 404
+- url: https://api.hypernative.xyz/assets/reputation/addresses
+  status: 401

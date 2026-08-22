@@ -1,0 +1,53 @@
+generated: '2026-08-22'
+method: searched
+source: >-
+  https://status.hypernative.io/ (HTTP 200, provider-operated Cronitor status page) and
+  Hypernative product pages, 2026-08-22
+asyncapi_spec: false
+asyncapi_note: >-
+  Hypernative publishes no AsyncAPI document. /asyncapi.yaml, /asyncapi.json and the docs
+  host were checked; the docs host 307s to a login. NOT fabricated.
+webhooks:
+  advertised: true
+  catalog_published: false
+  evidence: >-
+    Hypernative's OWN status page lists "Transaction Guard Webhook Service" as a
+    first-class operational component alongside "Hypernative API Service", "Wallet Protect
+    API Service" and "Transaction Guard API Service". That is the provider itself
+    advertising a production webhook delivery surface. Hypernative's product material
+    likewise describes plugging into customer workflows "through UI, API, SDK, and webhook
+    integrations" to create programmable, auditable incident-response paths.
+  services:
+  - name: Transaction Guard Webhook Service
+    state: Operational
+    source: https://status.hypernative.io/
+    role: >-
+      Delivers Transaction Guard events — pre-signature transaction evaluation outcomes
+      and policy decisions — to customer endpoints.
+  event_catalog: []
+  event_catalog_note: >-
+    NO event names, payload schemas, delivery semantics, retry policy or signature-
+    verification scheme are recorded here, because none are publicly documented. The
+    webhook reference sits inside the customer-only GitBook at docs.hypernative.xyz, which
+    307-redirects to an app login. Recording an invented event list would be fabrication;
+    an empty catalog with the reason stated is the honest artifact.
+  signature_verification: unknown
+  retry_policy: unknown
+  delivery_guarantee: unknown
+other_event_surfaces:
+  notification_channels:
+    note: >-
+      Hypernative's platform is alert-driven and routes detections to customer channels,
+      but the supported channel list and its configuration API are documented only behind
+      the login. Not enumerated here.
+  onchain_response:
+    note: >-
+      Hypernative's automated response executes against CUSTOMER-owned onchain contracts
+      (e.g. Exactly Protocol's publicly documented Pauser contract), so part of its event
+      egress is transactions rather than HTTP callbacks. This is an event surface that no
+      AsyncAPI document would capture.
+x-evidence:
+- url: https://status.hypernative.io/
+  status: 200
+- url: https://docs.hypernative.xyz/
+  status: 307

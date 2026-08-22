@@ -1,0 +1,44 @@
+generated: '2026-08-22'
+method: probed
+source: >-
+  Response headers observed on live unauthenticated requests to
+  https://api.hypernative.xyz (2026-08-22), plus a search of every public Hypernative
+  surface for a published limits reference.
+limit_count: 0
+published: false
+api: Hypernative API
+note: >-
+  No rate limits are publicly documented and no runtime rate-limit signal was observed.
+  Full header sets were captured from a 200 (/health), a 401 (POST
+  /assets/reputation/addresses) and 404/500 responses: none carried X-RateLimit-Limit,
+  X-RateLimit-Remaining, X-RateLimit-Reset, the RFC 9331 RateLimit-* family, or
+  Retry-After. This does NOT mean no limits exist — quota is almost certainly contractual
+  for an enterprise product, and the limits reference (if any) sits inside the
+  customer-only GitBook at docs.hypernative.xyz. An honest zero: nothing an unauthenticated
+  agent can read tells it what its budget is or how to back off.
+limits: []
+response_headers:
+  observed: []
+  ratelimit_family: none
+  retry_after: false
+exhaustion_status_code: unknown
+exhaustion_note: >-
+  No 429 was elicited; a single probe per endpoint was used deliberately rather than
+  hammering a production security API to discover a threshold.
+observed_response_headers_sample:
+- strict-transport-security
+- content-security-policy
+- x-content-type-options
+- x-frame-options
+- referrer-policy
+- cross-origin-opener-policy
+- cross-origin-resource-policy
+- etag
+- vary
+x-evidence:
+- url: https://api.hypernative.xyz/health
+  status: 200
+  ratelimit_headers: none
+- url: https://api.hypernative.xyz/assets/reputation/addresses
+  status: 401
+  ratelimit_headers: none
