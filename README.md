@@ -64,5 +64,107 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Hypernative is a company surfaced via the API Evangelist harvest backlog (source: secondary-market) and added to the network as a stub for full-pipeline profiling.
-- https://www.nasdaqprivatemarket.com/
+Hypernative is an institutional-grade Web3 and onchain security platform that detects and prevents blockchain threats before they cause damage. It combines real-time monitoring, machine-learning detection, simulation and graph-based analysis across 70+ chains with automated onchain response, covering over 300 risk types including smart contract exploits, bridge incidents, frontend compromises, private key theft, market manipulation and governance attacks. The platform is delivered as five products — the Hypernative Platform (onchain monitoring and automated response), Guardian / Transaction Guard (pre-signature transaction simulation and policy enforcement), Screener (cross-chain address reputation and risk scoring), Wallet Protect (end-user wallet threat prevention), and Fraud Prevention — and integrates into customer operations through UI, REST API, SDK and webhook paths served from api.hypernative.xyz. Hypernative reports securing $100B+ in onchain assets for 250+ customers including chains, protocols, exchanges, custodians, asset managers, stablecoin issuers and financial institutions.
+
+**Areas:** Company · Security · Blockchain · Web3 · Threat Detection · Risk Management · Compliance · Fraud Prevention · Monitoring · Cryptocurrency
+
+## Hypernative on APIs.io
+
+Everything profiled for Hypernative is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/hypernative/](https://apis.io/providers/hypernative/)** — or go straight to one of the APIs or properties below.
+
+### APIs (1)
+
+- [Hypernative API](https://apis.io/apis/hypernative/hypernative-api/) — The Hypernative REST API exposes the platform's monitoring, detection, screening and automated-response surface — including Screener address reputation…
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### AsyncAPI (1)
+
+Event-driven and webhook contracts.
+
+- [Hypernative Webhooks](https://apis.io/asyncapis/hypernative/hypernative-webhooks/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Hypernative Authentication](https://apis.io/security/hypernative/hypernative-authentication/)
+- [Hypernative Domain Security](https://apis.io/security/hypernative/hypernative-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Hypernative Plans Pricing](https://apis.io/plans/hypernative/hypernative-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Hypernative Rate Limits](https://apis.io/rate-limits/hypernative/hypernative-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.hypernative.io/)
+- [Documentation](https://docs.hypernative.xyz/)
+- [Support](https://www.hypernative.io/book-a-demo)
+- [Blog](https://www.hypernative.io/insights/blog)
+- [Privacy policy](https://www.hypernative.io/privacy-policy)
+- [GitHub](https://github.com/Hypernative-Labs)
+
+## API Evangelist rating
+
+**Kin Score 30.7** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 39.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 26.3 |
+| Developer ergonomics | 19.0 |
+| Access clarity | 17.1 |
+
+**Agent readiness 28.1** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | yes |
+| Agent Skills | — |
+| Well Known Catalog | yes |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 20.6** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/hypernative/](https://apis.io/providers/hypernative/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Hypernative: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/hypernative/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
